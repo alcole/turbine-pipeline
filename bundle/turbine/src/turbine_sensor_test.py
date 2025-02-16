@@ -1,3 +1,4 @@
+# Databricks notebook source
 import dlt
 import pyspark.sql.functions as F
 from src.load_data import load_turbine_data

@@ -20,4 +20,3 @@ resources:
       photon: true
       catalog: main
       serverless: true
-      data_sampling: false
