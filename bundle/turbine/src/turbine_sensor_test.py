@@ -1,9 +1,9 @@
 # Databricks notebook source
 import dlt
 import pyspark.sql.functions as F
-from src.load_data import load_turbine_data
-from src.clean_data import create_stats_validation_view, create_turbine_sensor_silver
-from src.publish_data import publish_to_gold
+from load_data import load_turbine_data
+from clean_data import create_stats_validation_view, create_turbine_sensor_silver
+from publish_data import publish_to_gold
 
 # Assign pipeline parameters to variables
 my_catalog = spark.conf.get("my_catalog")
