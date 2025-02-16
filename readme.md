@@ -3,12 +3,12 @@
 ## Overview
 Pipeline to ingest and transform the sensor data
 
-Uses a medallion multihop approach with Delta Live Tables (DLT).
-Python functions are provided to the pipeline to allow for isolation of functionality and testing
+Uses a medallion multi-hop approach with Delta Live Tables (DLT).
+Python functions are provided to the pipeline to allow for isolation of functionality and reusability to support testing
 
-* load_data.py loads the raw data from the cloud location into the Bronze table
-* clean_data.py creates the standard deviation of the data set and tests the data quality before loading to Silver tables
-* publish_data.py aggregates the data and creates a summary view of the data by turbine id and date
+* `load_data.py` loads the raw data from the cloud location into the Bronze table
+* `clean_data.py` creates the standard deviation of the data set and tests the data quality before loading to Silver tables
+* `publish_data.py` aggregates the data and creates a summary view of the data by turbine id and date in a gold table
 
 ![alt text](images/image.png)
 
@@ -31,13 +31,13 @@ Functional
 
 
 ## Installation
-Running setup.py will add the required locations to the schema and create a test data set written to csv.
+Running `setup.py` will add the required locations to the schema and create a test data set written to csv.
 Test data is stored and processed in a separate schema to isolate from production workloads
 2 Pipelines are included. 
 1. turbine sensor - the production pipeline
 2. turbine sensor test pipeline - uses the test locations and additional views with expectations to check the functions are correct
 
-Use bundle deploy to install the code
+Use [bundle deploy](bundle\turbine\README.md) to install the code
 
 
 ## Testing
