@@ -1,0 +1,23 @@
+resources:
+  pipelines:
+    turbine_sensor:
+      name: turbine sensor
+      configuration:
+        "my_catalog": "main"
+        "my_schema": "turbine"
+        "my_volume": "raw_sensor"
+      libraries:
+        - notebook:
+            path: ..\src\turbine sensor.py
+        - file:
+            path: ..\src\load_data.py
+        - file:
+            path: ..\src\clean_data.py
+        - file:
+            path: ..\src\publish_data.py
+      channel: CURRENT
+      schema: turbine
+      catalog: main
+      photon: true
+      serverless: true
+      development: true

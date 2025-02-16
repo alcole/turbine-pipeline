@@ -1,0 +1,23 @@
+resources:
+  pipelines:
+    pipeline_turbine_sensor_test:
+      name: turbine_sensor_test
+      configuration:
+        "my_catalog": "main"
+        "my_schema": "turbine_test"
+        "my_volume": "raw_sensor"
+      libraries:
+        - notebook:
+            path: ..\src\turbine_sensor_test.py
+        - file:
+            path: ..\src\load_data.py
+        - file:
+            path: ..\src\clean_data.py
+        - file:
+            path: ..\src\publish_data.py
+      schema: turbine_test
+      development: true
+      photon: true
+      catalog: main
+      serverless: true
+      data_sampling: false
