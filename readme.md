@@ -15,7 +15,7 @@ Python functions are provided to the pipeline to allow for isolation of function
 ### Assumptions
 Architectural
 1. MVP assumes a single workspace
-2. Requires UC
+2. Requires Unity Catalog (Recommended approach from Databricks)
 3. Uses serverless
    
 Functional
@@ -33,11 +33,12 @@ Functional
 ## Installation
 Running `setup.py` will add the required locations to the schema and create a test data set written to csv.
 Test data is stored and processed in a separate schema to isolate from production workloads
+
+Use [bundle deploy](bundle\turbine\README.md) to install the code. Update the workspace hostname in the `databricks.yml` file to the target environment.
+
 2 Pipelines are included. 
 1. turbine sensor - the production pipeline
 2. turbine sensor test pipeline - uses the test locations and additional views with expectations to check the functions are correct
-
-Use [bundle deploy](bundle\turbine\README.md) to install the code
 
 
 ## Testing
@@ -55,6 +56,7 @@ Expectations are used on the test tables to ensure the correct number of records
 Steps to bring to production
 1. Align with target architecture and environments
 2. Review ACLs in production environment
+3. Update bundle configuration for test, dev and prd environments
    
 Further steps to discuss to bring additional benefits from the data
 1. Create monitoring dashboard
