@@ -16,16 +16,16 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://adb-5741265693868923.3.azuredatabricks.net
+      host: ${workspace.host}
 
   prod:
     mode: production
     workspace:
-      host: https://adb-5741265693868923.3.azuredatabricks.net
-      # We explicitly specify /Workspace/Users/ajcalex@yahoo.com to make sure we only have a single copy.
-      root_path: /Workspace/Users/ajcalex@yahoo.com/.bundle/${bundle.name}/${bundle.target}
+      host: ${workspace.host}
+      # We explicitly specify /Workspace/Users/${workspace.current_user.userName} to make sure we only have a single copy.
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     permissions:
-      - user_name: ajcalex@yahoo.com
+      - user_name: ${workspace.current_user.userName}
         level: CAN_MANAGE
     run_as:
-      user_name: ajcalex@yahoo.com
+      user_name: ${workspace.current_user.userName}
