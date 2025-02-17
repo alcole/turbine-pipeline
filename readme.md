@@ -31,7 +31,7 @@ Functional
 
 
 ## Installation
-Running `setup.py` will add the required locations to the schema and create a test data set written to csv.
+Running `setup.py` will add the required locations to the schema and create a test data set written to csv. This is not installed as part of the bundle as is used one time only. 
 Test data is stored and processed in a separate schema to isolate from production workloads
 
 Use [bundle deploy](bundle/turbine/README.md) to install the code. The `databricks.yml` file contains 2 parameters that will need to be updated before running. Go to [databricks.yml](bundle/turbine/databricks.yml) and update `workspace.host` and `current_user.userName`
@@ -39,7 +39,7 @@ Use [bundle deploy](bundle/turbine/README.md) to install the code. The `databric
 
 2 Pipelines are included. 
 1. turbine sensor - the production pipeline
-2. turbine sensor test pipeline - uses the test locations and additional views with expectations to check the functions are correct
+2. turbine sensor test pipeline - uses the test locations and additional views with expectations to check the functions are correct. Requires the test data from setup.py to validate the expectations correctly
 
 
 ## Testing
